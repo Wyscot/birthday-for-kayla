@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Kayla 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+  <div class="hearts"></div>
+
+  <div class="container">
+    <h1>🎉 Happy Birthday Kayla! 🎉</h1>
+
+    <div class="slideshow-container">
+      <img class="slide" src="https://i.imgur.com/ZPqUqEF.jpeg" alt="Foto 1">
+      <img class="slide" src="https://i.imgur.com/D5inus3.jpeg" alt="Foto 2">
+      <img class="slide" src="https://i.imgur.com/17WDIoJ.jpeg" alt="Foto 3">
+    </div>
+
+    <p id="typewriter" class="message"></p>
+
+    <div class="heart">💗</div>
+
+    <button class="btn" onclick="alert('You are the best gift in my life 🥺✨')">Klik aku!</button>
+
+    <audio controls autoplay loop>
+      <source src="https://media.vocaroo.com/mp3/13gV82Ss89CD" type="audio/mpeg">
+      Browser kamu tidak mendukung audio ini.
+    </audio>
+    <p style="margin-top: 10px; color:#888;"><strong>I Love U 💙</strong></p>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Confetti
+    setTimeout(() => {
+      confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+    }, 500);
+
+    // Typewriter
+    const text = `Happy Birthday BUBU! I hope you are always happy with me even though sometimes I make you sad.
+Thank you for being there all this time and I hope our relationship lasts until old age together forever.
+I love u 💙`;
+    let index = 0;
+    function typeWriter() {
+      if (index < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 90);
+      }
+    }
+    window.onload = typeWriter;
+
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2500);
+    }
+    showSlides();
+  </script>
+</body>
+</html>
